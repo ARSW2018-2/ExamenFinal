@@ -29,22 +29,21 @@ public class TemperatureAPIController {
     @Autowired
     private TemperatureChange services;
     
-    @RequestMapping(method = RequestMethod.GET, value="/gf/{temp}")
-    public ResponseEntity<?> gradesToFaraday(@PathVariable("temp") @RequestBody double temp){
+    @RequestMapping(method = RequestMethod.GET, value="/gf/{tempa}")
+    public ResponseEntity<?> gradesToFaraday(@PathVariable("tempa") @RequestBody double tempa){
         try{
-            System.out.println("quee s le pasa"+temp);
-            System.out.println("que arroja"+services.CentigradosToFarange(temp));
-            return new ResponseEntity<>(services.CentigradosToFarange(temp),HttpStatus.ACCEPTED);
+
+            return new ResponseEntity<>(services.CentigradosToFarange(tempa),HttpStatus.ACCEPTED);
         } catch (Exception e) {
             Logger.getLogger(TemperatureAPIController.class.getName()).log(Level.SEVERE, null, e);
             return new ResponseEntity<>("Error",HttpStatus.NOT_FOUND);
         }
     }
-    @RequestMapping(method = RequestMethod.GET, value="/fg/{grade}")
-    public ResponseEntity<?> FaradayToGrades(@PathVariable("temp")@RequestBody double temp){
+    @RequestMapping(method = RequestMethod.GET, value="/fg/{tempa}")
+    public ResponseEntity<?> FaradayToGrades(@PathVariable("tempa")@RequestBody double tempa){
         try{
             
-            return new ResponseEntity<>(services.FarangeToCentigrados(temp),HttpStatus.ACCEPTED);
+            return new ResponseEntity<>(services.FarangeToCentigrados(tempa),HttpStatus.ACCEPTED);
         } catch (Exception e) {
             Logger.getLogger(TemperatureAPIController.class.getName()).log(Level.SEVERE, null, e);
             return new ResponseEntity<>("Error",HttpStatus.NOT_FOUND);

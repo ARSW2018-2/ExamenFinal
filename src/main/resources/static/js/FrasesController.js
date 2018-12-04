@@ -1,8 +1,3 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 var frase;
 var tipo;
 var grados;
@@ -12,7 +7,7 @@ var Frases = (function () {
         axios.get('/temp/gf/'+grados).then(function (response) {
             
             console.log(response.data);                
-
+            alert("Los grados centigrados"+grados+"En Fahrenheit son "+response.data);
           
         })
         .catch(function (error) {
@@ -24,30 +19,33 @@ var Frases = (function () {
     
     function farangeToGrade(){
         
-        axios.get('/temp/fg'+grados).then(function (response){
-            console.log('save succesfully')
- 
-        }).catch(function(error){
-                console.log(error);
-            });
-    }
-    function eraser(){
-        axios.post('/info/era',frase).then(function (response){
-            console.log('save succesfully')
- 
-        }).catch(function(error){
-                console.log(error);
-            });           
-    }
+        axios.get('/temp/fg/'+grados).then(function (response) {
+            
+            console.log(response.data);    
+            alert("Los"+grados+"Fahrenheit en centigrados son "+response.data );
+
+          
+        })
+        .catch(function (error) {
+            
+            console.log(error);
+        });
+    };
     
+
     function mandar(){
         tipo=document.getElementById("id").value;
         alert(tipo);
+        
         grados=document.getElementById("x").value;
         alert(grados);
-        if(tipo=="Fahrenheit"){
+        if(tipo=="farang"){
+            alert("1");
+            
             Frases.farangeToGrade();
         }else{
+            alert("2");
+            
             Frases.gradeToFarange();
         }
       
@@ -56,7 +54,6 @@ var Frases = (function () {
     return {
         gradeToFarange:gradeToFarange,
         farangeToGrade:farangeToGrade,
-        eraser:eraser,
         mandar:mandar
         
     
@@ -82,8 +79,3 @@ var Frases = (function () {
         getEmpresa:getEmpresa
     };
     })(); 
-
-
-
-
-

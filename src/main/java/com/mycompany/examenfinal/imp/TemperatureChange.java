@@ -17,15 +17,17 @@ public class TemperatureChange implements ChangeTemperature {
 
     @Override
     public Double CentigradosToFarange(double centir) {
-        Double f=(centir*(9/5))+32;
-        
+        Double f=(centir*(1.8));
+        f=f+32;
         return f;
         
     }
 
     @Override
     public Double FarangeToCentigrados(double farange) {
-        Double c=(farange-32)*(9/5);
+        Double c=farange-32;        
+        c=c*(5);
+        c=c/9;
         return c;
         
     }
