@@ -35,16 +35,16 @@ var Frases = (function () {
 
     function mandar(){
         tipo=document.getElementById("id").value;
-        alert(tipo);
+        //alert(tipo);
         
         grados=document.getElementById("x").value;
-        alert(grados);
+        //alert(grados);
         if(tipo=="farang"){
-            alert("1");
+            //alert("1");
             
             Frases.farangeToGrade();
         }else{
-            alert("2");
+            //alert("2");
             
             Frases.gradeToFarange();
         }
