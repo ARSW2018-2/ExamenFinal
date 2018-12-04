@@ -1,0 +1,60 @@
+<!-- saved from url=(0050)https://getbootstrap.com/docs/4.0/examples/cover/# -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="https://getbootstrap.com/favicon.ico">
+    <title>ARSW-LAB7</title>
+    <!-- Bootstrap core CSS -->
+
+
+    <!-- Custom styles for this template -->
+    
+    
+    <script type="text/javascript">
+     function anular(e) {
+          tecla = (document.all) ? e.keyCode : e.which;
+          return (tecla != 13);
+     }
+    </script>
+  </head>
+
+  <body class="text-center"onload="">
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+      <header class="masthead mb-auto">
+        <div class="inner">
+          <h3 class="masthead-brand">Informacio sobre empresas</h3>
+
+        </div>
+      </header>
+      <main role="main" class="inner cover">
+           <form action="procesar.php" onkeypress="return anular(event)">   
+                Grados:<input id="x" type="text" name="company"/>
+                <button id="sendNum" type="button" onclick="Frases.mandar()">Send point</button>
+                <select id = "id"  onchange="">
+                    <option value="farang">Fahrenheit</option>
+                    <option value="grades">Grades</option>
+                </select>
+            </form>
+          
+          <table id="tabla" border="2">
+            </table>
+	<ul class="list-group">
+    
+      
+        <p class="lead">
+            <p class="lead">Consulta la informacion de la temperatura  que deseas conocer.</p>
+        </p>
+    </main>     
+
+        
+
+    </div>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/FrasesController.js"> </script>
+    <script src="js/FrasesRestController.js"> </script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>                
+</body></html>

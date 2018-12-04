@@ -6,11 +6,13 @@
 package com.mycompany.examenfinal.imp;
 
 import com.mycompany.examenfinal.service.ChangeTemperature;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author 2098325
  */
+@Service
 public class TemperatureChange implements ChangeTemperature {
 
     @Override
