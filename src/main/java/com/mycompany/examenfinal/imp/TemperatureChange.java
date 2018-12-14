@@ -5,6 +5,7 @@
  */
 package com.mycompany.examenfinal.imp;
 
+import com.mycompany.examenfinal.model.Temperature;
 import com.mycompany.examenfinal.service.ChangeTemperature;
 import org.springframework.stereotype.Service;
 
@@ -15,20 +16,24 @@ import org.springframework.stereotype.Service;
 @Service
 public class TemperatureChange implements ChangeTemperature {
 
+    Temperature t;
+    
     @Override
-    public Double CentigradosToFarange(double centir) {
+    public Temperature CentigradosToFarange(double centir) {
         Double f=(centir*(1.8));
         f=f+32;
-        return f;
+        t=new Temperature(f,"Farange");
+        return t;
         
     }
 
     @Override
-    public Double FarangeToCentigrados(double farange) {
+    public Temperature FarangeToCentigrados(double farange) {
         Double c=farange-32;        
         c=c*(5);
         c=c/9;
-        return c;
+        t=new Temperature(c,"Farange");
+        return t;
         
     }
     

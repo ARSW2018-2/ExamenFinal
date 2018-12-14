@@ -1,28 +1,28 @@
 var frase;
 var tipo;
 var grados;
+var json;
 var Frases = (function () {
     function gradeToFarange(){
         
         axios.get('/temp/gf/'+grados).then(function (response) {
-            
+            this.json=response.data;
             console.log(response.data);                
-            alert("Los grados centigrados"+grados+"En Fahrenheit son "+response.data);
-          
+            alert("dsa"+json.grados);
+            alert("Los grados centigrados"+grados+"En Fahrenheit son "+json.grados);
+            
         })
         .catch(function (error) {
             
             console.log(error);
         });
     };
-    
-    
     function farangeToGrade(){
         
         axios.get('/temp/fg/'+grados).then(function (response) {
-            
+            this.json=response.data;
             console.log(response.data);    
-            alert("Los"+grados+"Fahrenheit en centigrados son "+response.data );
+            alert("Los"+grados+"Fahrenheit en centigrados son "+json.grados);
 
           
         })

@@ -5,13 +5,15 @@
  */
 package com.mycompany.examenfinal.service;
 
+import com.mycompany.examenfinal.model.Temperature;
+
 /**
  *
  * @author 2098325
  */
 public interface ChangeTemperature {
     
-    public Double CentigradosToFarange(double centir);
-    public Double FarangeToCentigrados(double farange);
+    public Temperature CentigradosToFarange(double centir);
+    public Temperature FarangeToCentigrados(double farange);
     
 }

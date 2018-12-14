@@ -21,6 +21,21 @@ public class Temperature {
     
     }
     
+    public void setTipo(String tipo){
+        this.tipo=tipo;
+    
+    }
+    public String getTipo(){
+        return tipo;
+    }
+    
+    public void setGrados(double grados){
+        this.grados=grados;
+    }
+    public double getGrados(){
+        return grados;
+    }
+    
    @Override
     public String toString(){
         return String.format("Compania con [grados=%s]", grados);

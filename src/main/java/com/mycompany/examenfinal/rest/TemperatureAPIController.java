@@ -5,6 +5,7 @@
  */
 package com.mycompany.examenfinal.rest;
 
+import com.google.gson.Gson;
 import com.mycompany.examenfinal.imp.TemperatureChange;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -32,8 +33,10 @@ public class TemperatureAPIController {
     @RequestMapping(method = RequestMethod.GET, value="/gf/{tempa}")
     public ResponseEntity<?> gradesToFaraday(@PathVariable("tempa") @RequestBody double tempa){
         try{
-
-            return new ResponseEntity<>(services.CentigradosToFarange(tempa),HttpStatus.ACCEPTED);
+            
+            Gson gson = new Gson();
+            String JSON= gson.toJson(services.CentigradosToFarange(tempa));
+            return new ResponseEntity<>(JSON,HttpStatus.ACCEPTED);
         } catch (Exception e) {
             Logger.getLogger(TemperatureAPIController.class.getName()).log(Level.SEVERE, null, e);
             return new ResponseEntity<>("Error",HttpStatus.NOT_FOUND);
@@ -42,8 +45,9 @@ public class TemperatureAPIController {
     @RequestMapping(method = RequestMethod.GET, value="/fg/{tempa}")
     public ResponseEntity<?> FaradayToGrades(@PathVariable("tempa")@RequestBody double tempa){
         try{
-            
-            return new ResponseEntity<>(services.FarangeToCentigrados(tempa),HttpStatus.ACCEPTED);
+            Gson gson = new Gson();
+            String JSON= gson.toJson(services.FarangeToCentigrados(tempa));
+            return new ResponseEntity<>(JSON,HttpStatus.ACCEPTED);
         } catch (Exception e) {
             Logger.getLogger(TemperatureAPIController.class.getName()).log(Level.SEVERE, null, e);
             return new ResponseEntity<>("Error",HttpStatus.NOT_FOUND);
